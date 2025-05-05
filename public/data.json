@@ -1,0 +1,62 @@
+[
+  {
+    "id": "event_001",
+    "name": "Tech Innovators Conference 2025",
+    "thumbnail": "https://apparelresources.com/wp-content/uploads/2024/11/Bangladeshs-RMG-exports-decline-by-2.8-per-cent-in-FY-25-Q1-.jpg",
+    "category": "Technology",
+    "date": "2025-05-15",
+    "location": "Dhaka Convention Center, Dhaka",
+    "entry_fee": 500,
+    "description": "An exclusive gathering of tech leaders and innovators from around the world."
+  },
+  {
+    "id": "event_002",
+    "name": "Green Future Expo",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2024/12/06/taka_mumitm-1977_0.jpg",
+    "category": "Environment",
+    "date": "2025-06-10",
+    "location": "Eco Park Arena, Chattogram",
+    "entry_fee": 300,
+    "description": "Showcasing sustainable technologies and eco-friendly solutions for the future."
+  },
+  {
+    "id": "event_003",
+    "name": "Startup Pitch Day 2025",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2021/07/05/fdi.jpg",
+    "category": "Business",
+    "date": "2025-07-20",
+    "location": "Innovation Hub, Sylhet",
+    "entry_fee": 200,
+    "description": "Pitch your startup idea to top investors and industry experts."
+  },
+  {
+    "id": "event_004",
+    "name": "AI & Robotics Summit",
+    "thumbnail": "https://media.licdn.com/dms/image/v2/D4E12AQHDZfFbG3RuAw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1685979901445?e=2147483647&v=beta&t=SWkw-wWTwSJav3iPJuSl4qSZgt8mC1YOcI-SCWEuA5c",
+    "category": "Technology",
+    "date": "2025-08-05",
+    "location": "Bangabandhu Hi-Tech City, Gazipur",
+    "entry_fee": 600,
+    "description": "Explore the latest advancements in artificial intelligence and robotics."
+  },
+  {
+    "id": "event_005",
+    "name": "Digital Art Festival",
+    "thumbnail": "https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2020/08/10/sme_small_and_medium_enterprises.jpg",
+    "category": "Art & Culture",
+    "date": "2025-09-01",
+    "location": "National Art Gallery, Dhaka",
+    "entry_fee": 150,
+    "description": "Experience immersive digital artworks and interactive installations."
+  },
+  {
+    "id": "event_006",
+    "name": "HealthTech Bangladesh",
+    "thumbnail": "https://allnextver.com/wp-content/uploads/2024/09/Top-E-commerce-Sites-in-Bangladesh-1024x538.jpg",
+    "category": "Healthcare",
+    "date": "2025-10-12",
+    "location": "Dhaka Medical Research Institute, Dhaka",
+    "entry_fee": 400,
+    "description": "Discover innovations in medical technology and digital health services."
+  }
+]
