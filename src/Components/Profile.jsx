@@ -12,14 +12,13 @@ const Profile = () => {
     const form = e.target;
     const name = form.name.value;
     const updatePhoto = form.photo.value;
-    console.log(name, updatePhoto);
 
     updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: photoURL,
+      photoURL: updatePhoto,
     })
       .then(() => {
-        alert("update profile successfully");
+        alert("Profile updated successfully!");
         window.location.reload();
       })
       .catch((error) => {
@@ -28,44 +27,54 @@ const Profile = () => {
   };
 
   return (
-    <div className="my-5">
-      <div className=" bg-base-100 w-96 shadow-sm flex items-center ">
-        <div className="card-body">
-          <h2 className="text-3xl font-bold">{displayName}</h2>
-          <p>{email}</p>
-        </div>
-        <figure>
-          <img
-            className="w-40 h-40 rounded-full object-cover hover:scale-105 transition duration-300"
-            src={photoURL}
-            alt="User"
-          />
-        </figure>
+    <div className="flex flex-col md:flex-row gap-8 items-center justify-center min-h-screen bg-gray-100 px-4">
+      {/* Profile Card */}
+      <div className="bg-white shadow-xl rounded-lg p-6 w-full max-w-md text-center">
+        <img
+          src={photoURL}
+          alt="Profile"
+          className="w-32 h-32 mx-auto rounded-full object-cover mb-4 border-4 border-violet-500"
+        />
+        <h2 className="text-2xl font-bold text-gray-800">{displayName}</h2>
+        <p className="text-gray-600">{email}</p>
       </div>
-      {/* update profile */}
-      <div>
-        <form
-          onSubmit={handleUpdateProfile}
-          className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4"
-        >
-          <legend className="fieldset-legend">Update Profile</legend>
 
-          <label className="label">Name</label>
-          <input name="name" type="text" className="input" placeholder="Name" />
+      {/* Update Form */}
+      <form
+        onSubmit={handleUpdateProfile}
+        className="bg-white shadow-xl rounded-lg p-6 w-full max-w-md"
+      >
+        <h3 className="text-xl font-semibold mb-4 text-gray-800">
+          Update Profile
+        </h3>
 
-          <label className="label">Photo URL</label>
+        <div className="mb-4">
+          <label className="block mb-1 text-gray-600">Name</label>
+          <input
+            name="name"
+            type="text"
+            placeholder="New name"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block mb-1 text-gray-600">Photo URL</label>
           <input
             name="photo"
             type="text"
-            className="input"
-            placeholder="PhotoURL"
+            placeholder="New photo URL"
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500"
           />
+        </div>
 
-          <button type="submit" className="btn btn-neutral mt-4">
-            Update Profile
-          </button>
-        </form>
-      </div>
+        <button
+          type="submit"
+          className="w-full bg-violet-600 text-white py-2 rounded-md hover:bg-violet-700 transition"
+        >
+          Update Profile
+        </button>
+      </form>
     </div>
   );
 };

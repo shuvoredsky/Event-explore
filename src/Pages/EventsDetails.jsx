@@ -18,8 +18,10 @@ const EventsDetails = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <EventsDetailsCard event={event}></EventsDetailsCard>
-      <ReserveSeat></ReserveSeat>
+      <div className="grid grid-cols-1 lg:grid-cols-2 mb-16 mt-5">
+        <EventsDetailsCard event={event}></EventsDetailsCard>
+        <ReserveSeat></ReserveSeat>
+      </div>
       <Footer></Footer>
     </div>
   );

@@ -7,7 +7,8 @@
     "date": "2025-05-15",
     "location": "Dhaka Convention Center, Dhaka",
     "entry_fee": 500,
-    "description": "An exclusive gathering of tech leaders and innovators from around the world."
+    "description": "An exclusive gathering of tech leaders and innovators from around the world.",
+    "content": "Event Explorer is a full-service event management company. We handle corporate events, weddings, and cultural programs. Our team ensures every detail is perfect. With 5 years of experience, we bring creativity and professionalism. Let’s make your next event unforgettable!"
   },
   {
     "id": "event_002",
@@ -17,7 +18,8 @@
     "date": "2025-06-10",
     "location": "Eco Park Arena, Chattogram",
     "entry_fee": 300,
-    "description": "Showcasing sustainable technologies and eco-friendly solutions for the future."
+    "description": "Showcasing sustainable technologies and eco-friendly solutions for the future.",
+    "content": "At Event Explorer, we transform ideas into reality. From venue selection to logistics, we manage everything. Our clients trust us for timely execution and innovative solutions. We’ve successfully organized over 50 events in the last year alone."
   },
   {
     "id": "event_003",
@@ -27,7 +29,8 @@
     "date": "2025-07-20",
     "location": "Innovation Hub, Sylhet",
     "entry_fee": 200,
-    "description": "Pitch your startup idea to top investors and industry experts."
+    "description": "Pitch your startup idea to top investors and industry experts.",
+    "content": "Event Explorer specializes in customized event planning. Whether it’s a small gathering or a large festival, we deliver excellence. Our network of vendors and tech tools ensures smooth operations. Your vision is our mission."
   },
   {
     "id": "event_004",
@@ -37,7 +40,8 @@
     "date": "2025-08-05",
     "location": "Bangabandhu Hi-Tech City, Gazipur",
     "entry_fee": 600,
-    "description": "Explore the latest advancements in artificial intelligence and robotics."
+    "description": "Explore the latest advancements in artificial intelligence and robotics.",
+    "content": "Why choose Event Explorer? We combine creativity with precision. Our team designs unique themes and engaging experiences. Recent projects include hybrid events and eco-friendly setups. Let’s create something amazing together."
   },
   {
     "id": "event_005",
@@ -47,7 +51,8 @@
     "date": "2025-09-01",
     "location": "National Art Gallery, Dhaka",
     "entry_fee": 150,
-    "description": "Experience immersive digital artworks and interactive installations."
+    "description": "Experience immersive digital artworks and interactive installations.",
+    "content": "Event Explorer leverages technology for seamless events. Our services include virtual event platforms and live streaming. We ensure high engagement and flawless execution. Tech-driven events are our expertise."
   },
   {
     "id": "event_006",
@@ -57,6 +62,7 @@
     "date": "2025-10-12",
     "location": "Dhaka Medical Research Institute, Dhaka",
     "entry_fee": 400,
-    "description": "Discover innovations in medical technology and digital health services."
+    "description": "Discover innovations in medical technology and digital health services.",
+    "content": "Client satisfaction is our top priority at Event Explorer. We listen, plan, and execute to exceed expectations. Our repeat clients are a testament to our quality. Let’s collaborate for your next successful event."
   }
 ]

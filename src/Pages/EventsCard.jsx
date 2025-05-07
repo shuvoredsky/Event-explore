@@ -21,7 +21,10 @@ const EventsCard = ({ events }) => {
             <br />
             <div className="badge badge-outline">{date}</div>
           </div>
-          <Link to={`/event-details/${id}`} className="btn btn-primary">
+          <Link
+            to={`/event-details/${id}`}
+            className="btn bg-violet-600 text-white"
+          >
             View More
           </Link>
         </div>

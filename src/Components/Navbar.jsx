@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router"; // ✅ react-router-dom use korte hobe
+import { NavLink } from "react-router";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -110,6 +111,7 @@ const Navbar = () => {
               Login
             </NavLink>
           )}
+          <ToastContainer />
         </div>
       </div>
 

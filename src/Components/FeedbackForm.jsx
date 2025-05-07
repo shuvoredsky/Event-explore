@@ -38,7 +38,10 @@ const FeedbackForm = () => {
             className="textarea textarea-bordered w-full"
             required
           />
-          <button type="submit" className="btn btn-primary w-full">
+          <button
+            type="submit"
+            className="btn btn-primary bg-violet-600 w-full"
+          >
             Submit Feedback
           </button>
         </form>
