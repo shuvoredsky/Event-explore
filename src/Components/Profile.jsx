@@ -2,7 +2,6 @@ import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Pages/Firebase-config/firebase-init";
-import PopularCity from "../Pages/PopularCity";
 
 const Profile = () => {
   const { user } = use(AuthContext);
@@ -30,13 +29,17 @@ const Profile = () => {
 
   return (
     <div className="my-5">
-      <div className="card bg-base-100 w-96 shadow-sm">
+      <div className=" bg-base-100 w-96 shadow-sm flex items-center ">
         <div className="card-body">
-          <h2 className="card-title">{displayName}</h2>
+          <h2 className="text-3xl font-bold">{displayName}</h2>
           <p>{email}</p>
         </div>
         <figure>
-          <img src={photoURL} alt="User" />
+          <img
+            className="w-40 h-40 rounded-full object-cover hover:scale-105 transition duration-300"
+            src={photoURL}
+            alt="User"
+          />
         </figure>
       </div>
       {/* update profile */}
@@ -62,9 +65,6 @@ const Profile = () => {
             Update Profile
           </button>
         </form>
-      </div>
-      <div className="my-5">
-        <PopularCity></PopularCity>
       </div>
     </div>
   );

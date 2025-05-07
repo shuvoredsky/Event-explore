@@ -8,6 +8,7 @@ import PrivetRoute from "../Components/PrivetRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import Profile from "../Components/Profile";
 import Home from "../Components/Home";
+import GuidelinesTips from "../Pages/GuideLine";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
         element: (
           <PrivetRoute>
             <Profile></Profile>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/guide-line",
+        element: (
+          <PrivetRoute>
+            <GuidelinesTips></GuidelinesTips>
           </PrivetRoute>
         ),
       },
