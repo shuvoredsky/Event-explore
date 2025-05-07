@@ -1,11 +1,30 @@
 import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "./Firebase-config/firebase-init";
 
 const Register = () => {
   const { createUser, setUser, updateUser } = use(AuthContext);
   const [nameError, setNameError] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+
+  const provider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    console.log("Handle clicked");
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -75,17 +94,36 @@ const Register = () => {
             />
 
             <label className="label">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="input"
-              placeholder="Password"
-            />
+            <div className="flex items-center">
+              {" "}
+              <input
+                name="password"
+                type={showPass ? "text" : "password"}
+                className="input"
+                placeholder="Password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+              />
+              <button
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+                className="btn btn-xs absolute right-15"
+              >
+                {showPass ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
 
             <button className="btn btn-neutral mt-4">Register</button>
+            <button
+              className="btn btn-wide mt-2 mx-auto"
+              onClick={handleGoogleSignIn}
+            >
+              Sign in with Google
+            </button>
             <p className="text-center font-semibold pt-5">
               Already Have An Account ?{" "}
-              <Link className="text-red-500" to="/auth/login">
+              <Link className="text-red-500" to="/login">
                 Login
               </Link>
             </p>

@@ -1,10 +1,25 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
 import { FaUser } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+  // console.log(user);
+  // console.log(user.photoURL);
+
+  const handleLogOut = () => {
+    console.log("user try to logout");
+    logOut()
+      .then(() => {
+        alert("sign out successfully");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-white  shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,7 +46,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a>My Profile</a>
+              <Link to="/update-profile">My Profile</Link>
             </li>
           </ul>
         </div>
@@ -48,14 +63,32 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a>My Profile</a>
+            <Link to="/update-profile">My Profile</Link>
           </li>
         </ul>
       </div>
 
       <div className="navbar-end gap-5">
-        <FaUser />
-        <a className="btn">Sign in</a>
+        {user && user.photoURL ? (
+          <img
+            src={user.photoURL}
+            alt="User"
+            title={user.displayName || "User"} // Tooltip
+            className="w-10 h-10 rounded-full object-cover hover:scale-105 transition duration-300"
+          />
+        ) : (
+          <FaUser size={32} title="Guest User" />
+        )}
+
+        {user ? (
+          <button onClick={handleLogOut} className="btn  px-10">
+            Logut
+          </button>
+        ) : (
+          <Link to="/login" className="btn  px-10">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
