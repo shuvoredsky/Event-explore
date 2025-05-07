@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import PopularCity from "./PopularCity";
 
 const EventsCard = ({ events }) => {
   const { id, name, description, location, date, category, thumbnail } = events;
@@ -21,7 +22,7 @@ const EventsCard = ({ events }) => {
             <div className="badge badge-outline">{date}</div>
           </div>
           <Link to={`/event-details/${id}`} className="btn btn-primary">
-            Event Details
+            View More
           </Link>
         </div>
       </div>

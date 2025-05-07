@@ -1,16 +1,8 @@
 import React from "react";
+import PopularCity from "./PopularCity";
 
 const EventsDetailsCard = ({ event }) => {
-  const {
-    id,
-    name,
-    description,
-    location,
-    date,
-    category,
-    thumbnail,
-    entry_fee,
-  } = event;
+  const { name, description, location, date, category, thumbnail } = event;
   return (
     <div>
       <div className="card bg-base-100 w-96 shadow-sm lg:grid-cols-1">

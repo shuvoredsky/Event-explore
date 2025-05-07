@@ -7,6 +7,7 @@ import EventsDetails from "../Pages/EventsDetails";
 import PrivetRoute from "../Components/PrivetRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import Profile from "../Components/Profile";
+import Home from "../Components/Home";
 
 const router = createBrowserRouter([
   {
@@ -14,14 +15,6 @@ const router = createBrowserRouter([
     element: <MainLayOut></MainLayOut>,
 
     children: [
-      {
-        path: "/about",
-        element: <p>This is About</p>,
-      },
-      {
-        path: "/blog",
-        element: <p>This is blog</p>,
-      },
       {
         path: "/login",
         Component: Login,
@@ -44,6 +37,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/home",
+    element: <Home></Home>,
   },
   {
     path: "/event-details/:id",
