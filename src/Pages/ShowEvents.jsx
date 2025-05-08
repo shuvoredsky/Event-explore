@@ -11,7 +11,7 @@ const ShowEvents = () => {
   return (
     <div className=" bg-[url('/eventCardBG.jpg')] bg-cover bg-center ">
       <Slider></Slider>
-      <div className="grid grid-cols-3 gap-5 m-3  ">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 m-3  ">
         {data.map((events) => (
           <EventsCard events={events} key={events.id}></EventsCard>
         ))}

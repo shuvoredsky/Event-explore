@@ -1,12 +1,14 @@
-import React, { use, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router";
-import { AuthContext } from "../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./Firebase-config/firebase-init";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const { createUser, setUser, updateUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = useContext(AuthContext);
   const [nameError, setNameError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
@@ -14,120 +16,127 @@ const Register = () => {
   const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
-    console.log("Handle clicked");
-
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
+        toast.success("Google Sign In Successful!");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // console.log(e.target);
     const form = e.target;
     const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
     if (name.length < 5) {
-      setNameError("Name should be more than 5 character");
+      setNameError("Name should be more than 5 characters");
       return;
     } else {
       setNameError("");
     }
-    const photo = form.photo.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, photo, email, password);
 
     createUser(email, password)
       .then((currentUser) => {
         const newUser = currentUser.user;
-        console.log(currentUser.user);
-        alert("new user create successsfully");
+        toast.success("New user created successfully!");
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...newUser, displayName: name, photoURL: photo });
             navigate("/login");
           })
           .catch((error) => {
-            console.log(error.message);
+            toast.warn("User updated partially!");
             setUser(newUser);
           });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
+
   return (
-    <div className="flex justify-center min-h-screen items-center">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="text-2xl font-semibold text-center">
-          Register your account
-        </h2>
-        <form onSubmit={handleRegister} className="card-body">
-          <fieldset className="fieldset">
-            <label className="label">Name</label>
+    <div className="min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center px-4 pb-20 pt-5">
+      <ToastContainer />
+      <div className="backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-8 w-full max-w-sm text-white">
+        <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
+        <form onSubmit={handleRegister} className="space-y-4">
+          <div>
+            <label className="block mb-1">Name</label>
             <input
               name="name"
               type="text"
-              className="input"
-              placeholder="Name"
+              placeholder="Full Name"
+              className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              required
             />
-            {nameError && <p className="text-xs text-red-400">{nameError}</p>}
-            <label className="label">Photo Url</label>
+            {nameError && <p className="text-xs text-red-300">{nameError}</p>}
+          </div>
+          <div>
+            <label className="block mb-1">Photo URL</label>
             <input
               name="photo"
               type="text"
-              className="input"
-              placeholder="Photo Url"
+              placeholder="Photo URL"
+              className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-300"
             />
-
-            <label className="label">Email</label>
+          </div>
+          <div>
+            <label className="block mb-1">Email</label>
             <input
               name="email"
               type="email"
-              className="input"
               placeholder="Email"
+              className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              required
             />
-
-            <label className="label">Password</label>
-            <div className="flex items-center">
-              {" "}
+          </div>
+          <div>
+            <label className="block mb-1">Password</label>
+            <div className="relative">
               <input
                 name="password"
                 type={showPass ? "text" : "password"}
-                className="input"
                 placeholder="Password"
+                className="w-full px-4 py-2 rounded-md bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-300"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+                title="Must be at least 8 characters, include uppercase, lowercase, and a number"
+                required
               />
               <button
-                onClick={() => {
-                  setShowPass(!showPass);
-                }}
-                className="btn btn-xs absolute right-15"
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="absolute right-3 top-2 text-white"
               >
-                {showPass ? <FaEye /> : <FaEyeSlash />}
+                {showPass ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-
-            <button className="btn btn-neutral mt-4">Register</button>
-            <button
-              className="btn btn-wide mt-2 mx-auto"
-              onClick={handleGoogleSignIn}
-            >
-              Sign in with Google
-            </button>
-            <p className="text-center font-semibold pt-5">
-              Already Have An Account ?{" "}
-              <Link className="text-red-500" to="/login">
-                Login
-              </Link>
-            </p>
-          </fieldset>
+          </div>
+          <button
+            type="submit"
+            className="w-full cursor-pointer bg-white/20 text-white py-2 rounded-md hover:bg-white/30 transition"
+          >
+            Register
+          </button>
+          <button
+            type="button"
+            className="w-full cursor-pointer mt-2 bg-white/10 hover:bg-white/20 py-2 rounded-md text-white border border-white/30 transition"
+            onClick={handleGoogleSignIn}
+          >
+            Sign in with Google
+          </button>
+          <p className="text-center text-sm mt-4">
+            Already have an account?{" "}
+            <Link to="/login" className="text-pink-300 hover:underline">
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </div>

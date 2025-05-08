@@ -29,17 +29,13 @@ const AnimatedCounter = () => {
           }
         });
       },
-      {
-        threshold: 0.5,
-      }
+      { threshold: 0.5 }
     );
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
-    }
+
+    if (counterRef.current) observer.observe(counterRef.current);
+
     return () => {
-      if (counterRef.current) {
-        observer.unobserve(counterRef.current);
-      }
+      if (counterRef.current) observer.unobserve(counterRef.current);
     };
   }, [isAnimated]);
 
@@ -65,36 +61,44 @@ const AnimatedCounter = () => {
         setStaffCount(targetValues.staffs);
       }
     };
+
     requestAnimationFrame(animate);
   };
 
   return (
-    <div ref={counterRef} className="flex flex-wrap justify-center gap-6 py-10">
-      <div className="w-56 p-6 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <MdCoPresent size={30} color="violet" />
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">
-          {doctorCount}+
-        </h2>
-        <p className="text-lg text-gray-600">Total Events Hosted</p>
-      </div>
-      <div className="w-56 p-6 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <FaUsers size={30} color="red" />
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">
-          {reviewCount}+
-        </h2>
-        <p className="text-lg text-gray-600">Active Users</p>
-      </div>
-      <div className="w-56 p-6 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <FaCity size={30} color="green" />
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">
-          {patientsCount}+
-        </h2>
-        <p className="text-lg text-gray-600">Cities Covered</p>
-      </div>
-      <div className="w-56 p-6 text-center bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <TbCategoryPlus size={30} color="blue" />
-        <h2 className="text-4xl font-bold text-gray-800 mb-2">{staffCount}+</h2>
-        <p className="text-lg text-gray-600">Event Categories</p>
+    <div className="bg-sky-300 py-10 px-4">
+      <div ref={counterRef} className="flex flex-wrap justify-center gap-6">
+        {[
+          {
+            icon: <MdCoPresent size={30} className="text-violet-400" />,
+            count: doctorCount,
+            label: "Total Events Hosted",
+          },
+          {
+            icon: <FaUsers size={30} className="text-red-400" />,
+            count: reviewCount,
+            label: "Active Users",
+          },
+          {
+            icon: <FaCity size={30} className="text-sky-700" />,
+            count: patientsCount,
+            label: "Cities Covered",
+          },
+          {
+            icon: <TbCategoryPlus size={30} className="text-blue-400" />,
+            count: staffCount,
+            label: "Event Categories",
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="w-56 p-6 text-center rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-2xl hover:shadow-violet-400 hover:scale-105 transition-all duration-300 text-white"
+          >
+            {item.icon}
+            <h2 className="text-4xl font-bold my-2">{item.count}+</h2>
+            <p className="text-sm tracking-wide">{item.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
