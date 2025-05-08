@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import Profile from "../Components/Profile";
 import Home from "../Components/Home";
 import GuidelinesTips from "../Pages/GuideLine";
+import Loading from "../Components/Loading";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch("../data.json"),
+        hydrateFallbackElement: <Loading></Loading>,
         element: <ShowEvents />,
       },
       {
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
       {
         path: "event-details/:id",
         loader: () => fetch("../data.json"),
+        hydrateFallbackElement: <Loading></Loading>,
         element: (
           <PrivetRoute>
             <EventsDetails />
