@@ -66,26 +66,26 @@ const AnimatedCounter = () => {
   };
 
   return (
-    <div className="bg-sky-300 py-10 px-4">
+    <div className="bg-violet-400 py-10 px-4">
       <div ref={counterRef} className="flex flex-wrap justify-center gap-6">
         {[
           {
-            icon: <MdCoPresent size={30} className="text-violet-400" />,
+            icon: <MdCoPresent size={30} className="text-violet-700" />,
             count: doctorCount,
             label: "Total Events Hosted",
           },
           {
-            icon: <FaUsers size={30} className="text-red-400" />,
+            icon: <FaUsers size={30} className="text-violet-700" />,
             count: reviewCount,
             label: "Active Users",
           },
           {
-            icon: <FaCity size={30} className="text-sky-700" />,
+            icon: <FaCity size={30} className="text-violet-700" />,
             count: patientsCount,
             label: "Cities Covered",
           },
           {
-            icon: <TbCategoryPlus size={30} className="text-blue-400" />,
+            icon: <TbCategoryPlus size={30} className="text-violet-700" />,
             count: staffCount,
             label: "Event Categories",
           },

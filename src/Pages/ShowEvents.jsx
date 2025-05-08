@@ -14,7 +14,8 @@ const ShowEvents = () => {
   const data = useLoaderData();
   // console.log(data);
   return (
-    <div className=" bg-[url('/eventCardBG.jpg')] bg-cover bg-center ">
+    // bg-[url('/eventCardBG.jpg')]
+    <div className="  bg-violet-400 bg-center ">
       <Slider></Slider>
       <div
         className="grid lg:grid-cols-3 grid-cols-1 gap-5 m-3 data-aos  "

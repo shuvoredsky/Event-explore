@@ -11,7 +11,7 @@ const PopularCity = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-r from-violet-600 to-purple-700 py-10 px-4 md:px-10 lg:px-20">
+    <div className="w-full bg-violet-400 py-10 px-4 md:px-10 lg:px-20">
       <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-2">
         "Your <span className="text-red-400">City</span>, Your{" "}
         <span className="text-red-400">Vibe</span>, Your{" "}
