@@ -13,56 +13,52 @@ import GuidelinesTips from "../Pages/GuideLine";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayOut></MainLayOut>,
-
+    element: <MainLayOut />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/register",
-        Component: Register,
-      },
-      {
-        path: "",
+        index: true,
         loader: () => fetch("../data.json"),
-        Component: ShowEvents,
+        element: <ShowEvents />,
       },
       {
-        path: "/update-profile",
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "event-details/:id",
+        loader: () => fetch("../data.json"),
         element: (
           <PrivetRoute>
-            <Profile></Profile>
+            <EventsDetails />
           </PrivetRoute>
         ),
       },
       {
-        path: "/guide-line",
+        path: "update-profile",
         element: (
           <PrivetRoute>
-            <GuidelinesTips></GuidelinesTips>
+            <Profile />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "guide-line",
+        element: (
+          <PrivetRoute>
+            <GuidelinesTips />
           </PrivetRoute>
         ),
       },
     ],
-  },
-  {
-    path: "/home",
-    element: <Home></Home>,
-  },
-  {
-    path: "/event-details/:id",
-    element: (
-      <PrivetRoute>
-        <EventsDetails></EventsDetails>
-      </PrivetRoute>
-    ),
-    loader: () => fetch("../data.json"),
-  },
-  {
-    path: "/*",
-    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
