@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "./Firebase-config/firebase-init";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -19,7 +21,8 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        alert("Sign in successfully");
+        // alert("Sign in successfully");
+        toast.success("User Login Successful!");
         navigate("/");
       })
       .catch((error) => {
@@ -92,6 +95,7 @@ const Login = () => {
           </p>
         </form>
       </div>
+      <ToastContainer autoClose={3000} position="top-right" theme="colored" />
     </div>
   );
 };
