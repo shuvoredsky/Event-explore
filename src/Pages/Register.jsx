@@ -6,6 +6,7 @@ import { auth } from "./Firebase-config/firebase-init";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
@@ -134,10 +135,10 @@ const Register = () => {
           </button>
           <button
             type="button"
-            className="w-full cursor-pointer mt-2 bg-white/10 hover:bg-white/20 py-2 rounded-md text-white border border-white/30 transition"
+            className="w-full mx-auto cursor-pointer mt-2 bg-white/10 hover:bg-white/20 py-2 rounded-md text-white border border-white/30 "
             onClick={handleGoogleSignIn}
           >
-            Sign in with Google
+            <FcGoogle className="inline" size={30} /> Sign In with Google
           </button>
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}
