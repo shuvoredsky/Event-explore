@@ -5,6 +5,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "./Firebase-config/firebase-init";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -43,7 +44,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-violet-600 to-indigo-400 flex items-center justify-center px-4">
+      <Helmet>
+        <title>Event | Login</title>
+      </Helmet>
       <div className="backdrop-blur-lg bg-white/10 border border-white/30 shadow-xl rounded-xl p-8 w-full max-w-sm text-white">
         <h2 className="text-2xl font-bold text-center mb-6">
           Login to Your Account

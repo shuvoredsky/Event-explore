@@ -6,6 +6,7 @@ import { useLoaderData, useParams } from "react-router";
 import ReserveSeat from "./ReserveSeat";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const EventsDetails = () => {
   const data = useLoaderData();
@@ -23,6 +24,9 @@ const EventsDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Event | Details</title>
+      </Helmet>
       <Navbar />
       <div
         className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 mt-5 px-4"

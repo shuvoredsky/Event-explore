@@ -7,6 +7,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
@@ -71,7 +72,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center px-4 pb-20 pt-5">
+    <div className="min-h-screen bg-violet-500 flex items-center justify-center px-4 pb-20 pt-5">
+      <Helmet>
+        <title>Event | Register</title>
+      </Helmet>
       <ToastContainer />
       <div className="backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-8 w-full max-w-sm text-white">
         <h2 className="text-2xl font-bold text-center mb-6">Register</h2>

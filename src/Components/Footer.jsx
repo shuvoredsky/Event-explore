@@ -36,6 +36,7 @@ const Footer = () => {
             <FaFacebook />
             <FaTwitter />
             <FaInstagramSquare />
+            {/* {import.meta.env.VITE_name} */}
           </div>
         </div>
       </div>

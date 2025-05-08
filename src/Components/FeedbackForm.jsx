@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const FeedbackForm = () => {
   const [feedbackList, setFeedbackList] = useState([]);
@@ -17,6 +18,9 @@ const FeedbackForm = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Helmet>
+        <title>Event | Community</title>
+      </Helmet>
       {/* Feedback Form */}
       <div className="bg-white p-6 rounded-xl shadow-md border border-gray-200">
         <h2 className="text-xl font-semibold mb-4">Still have questions?</h2>

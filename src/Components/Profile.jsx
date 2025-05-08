@@ -2,6 +2,8 @@ import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Pages/Firebase-config/firebase-init";
+import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const { user } = use(AuthContext);
@@ -18,7 +20,7 @@ const Profile = () => {
       photoURL: updatePhoto,
     })
       .then(() => {
-        alert("Profile updated successfully!");
+        toast.success("Profile Update Successfully");
         window.location.reload();
       })
       .catch((error) => {
@@ -28,6 +30,9 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-8 items-center justify-center min-h-screen bg-violet-600 px-4">
+      <Helmet>
+        <title>Event | My-Profile</title>
+      </Helmet>
       {/* Glassy Profile Card */}
       <div className="backdrop-blur-md bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-6 w-full max-w-md text-center text-white">
         <img
