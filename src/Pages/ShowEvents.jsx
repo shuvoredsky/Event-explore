@@ -15,12 +15,14 @@ const ShowEvents = () => {
   const data = useLoaderData();
 
   return (
-    // bg-[url('/eventCardBG.jpg')]
     <div className="  bg-violet-400 bg-center ">
       <Helmet>
         <title>Event | Home</title>
       </Helmet>
       <Slider></Slider>
+      <h2 className="text-center font-bold lg:text-3xl text-xl text-white py-5">
+        Upcoming Events
+      </h2>
       <div
         className="grid lg:grid-cols-3 grid-cols-1 gap-5 m-3 data-aos  "
         data-aos="zoom-out-up"

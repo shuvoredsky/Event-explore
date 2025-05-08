@@ -26,7 +26,7 @@ const Footer = () => {
           <li className="font-bold ">
             <Link to="/update-profile">My Profile</Link>
           </li>
-          <li className="font-bold ">
+          <li className="font-bold cursor-pointer">
             <Link to="/guide-line">Community</Link>
           </li>
         </ul>

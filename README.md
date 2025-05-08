@@ -1,12 +1,36 @@
-# React + Vite
+# Jasmine Event App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive web application for event booking, community feedback, and user authentication.
 
-Currently, two official plugins are available:
+## 🌐 Live URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://jasminea9-7f5c2.web.app]
 
-## Expanding the ESLint configuration
+## 🎯 Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project allows users to:
+
+- Register and log in using email or Google
+- Book events or appointments
+- Submit and view community feedback
+- Update their profile
+
+## ✨ Key Features
+
+- Firebase Authentication (Email/Password & Google Sign-In)
+- Protected Routes with React Router
+- Responsive Design using Tailwind CSS
+- Toast Notifications with `react-toastify`
+- Helmet for dynamic page titles
+- Glassmorphism UI effects
+- Community feedback system (without backend)
+
+## 📦 NPM Packages Used
+
+- `react`
+- `react-router-dom`
+- `firebase`
+- `react-toastify`
+- `react-helmet-async`
+- `react-icons`
+- `tailwindcss`

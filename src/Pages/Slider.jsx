@@ -5,9 +5,7 @@ const Slider = () => {
     <div className="relative w-full max-w-[1280px] mx-auto rounded-lg overflow-hidden h-[250px] md:h-[400px] lg:h-[500px]">
       <div className="absolute inset-0  z-10 pointer-events-none"></div>
 
-      {/* Carousel */}
       <div className="carousel w-full h-full">
-        {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="/slider-4.jpg"
@@ -24,7 +22,6 @@ const Slider = () => {
           </div>
         </div>
 
-        {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
           <img
             src="/slider-1.jpg"
@@ -41,7 +38,6 @@ const Slider = () => {
           </div>
         </div>
 
-        {/* Slide 3 */}
         <div id="slide3" className="carousel-item relative w-full">
           <img
             src="/slider-2.jpg"
@@ -58,7 +54,6 @@ const Slider = () => {
           </div>
         </div>
 
-        {/* Slide 4 */}
         <div id="slide4" className="carousel-item relative w-full">
           <img
             src="/slider-3.jpg"

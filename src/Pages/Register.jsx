@@ -14,18 +14,25 @@ const Register = () => {
   const [nameError, setNameError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-
   const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setUser(result.user);
-        toast.success("Google Sign In Successful!");
+        toast.success("Google Sign In Successful!", {
+          autoClose: 3000,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+        });
         navigate("/");
       })
       .catch((error) => {
-        toast.error(error.message);
+        toast.error(error.message, {
+          autoClose: 3000,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+        });
       });
   };
 
@@ -48,10 +55,10 @@ const Register = () => {
       .then((currentUser) => {
         const newUser = currentUser.user;
         if (newUser) {
-          toast.success(" Register Success!", {
-            position: "top-right",
+          toast.success("Register Success!", {
             autoClose: 3000,
-            pauseOnHover: true,
+            pauseOnHover: false,
+            pauseOnFocusLoss: false,
             theme: "colored",
           });
           e.target.reset();
@@ -61,13 +68,21 @@ const Register = () => {
             setUser({ ...newUser, displayName: name, photoURL: photo });
             navigate("/login");
           })
-          .catch((error) => {
-            toast.warn("User updated partially!");
+          .catch(() => {
+            toast.warn("User updated partially!", {
+              autoClose: 3000,
+              pauseOnHover: false,
+              pauseOnFocusLoss: false,
+            });
             setUser(newUser);
           });
       })
       .catch((error) => {
-        toast.error(error.message);
+        toast.error(error.message, {
+          autoClose: 3000,
+          pauseOnHover: false,
+          pauseOnFocusLoss: false,
+        });
       });
   };
 
@@ -76,7 +91,18 @@ const Register = () => {
       <Helmet>
         <title>Event | Register</title>
       </Helmet>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
       <div className="backdrop-blur-xl bg-white/10 border border-white/30 shadow-2xl rounded-2xl p-8 w-full max-w-sm text-white">
         <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
         <form onSubmit={handleRegister} className="space-y-4">

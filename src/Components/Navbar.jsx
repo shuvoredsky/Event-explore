@@ -24,7 +24,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Fixed Navbar with Glass Effect */}
       <div className="navbar fixed top-0 left-0 z-50 w-full backdrop-blur-lg bg-white/60 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
@@ -126,7 +125,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Spacer for fixed navbar */}
       <div className="h-20"></div>
     </>
   );
