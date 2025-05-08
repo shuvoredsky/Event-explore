@@ -45,7 +45,15 @@ const Register = () => {
     createUser(email, password)
       .then((currentUser) => {
         const newUser = currentUser.user;
-        toast.success("New user created successfully!");
+        if (newUser) {
+          toast.success(" Register Success!", {
+            position: "top-right",
+            autoClose: 3000,
+            pauseOnHover: true,
+            theme: "colored",
+          });
+          e.target.reset();
+        }
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...newUser, displayName: name, photoURL: photo });
