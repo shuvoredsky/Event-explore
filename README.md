@@ -1,6 +1,7 @@
 # Jasmine Event App
 
 A modern and responsive web application for event booking, community feedback, and user authentication.
+This website about Event Explorer.
 
 ## 🌐 Live URL
 
